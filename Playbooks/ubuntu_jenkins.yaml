@@ -1,0 +1,21 @@
+---
+- hosts: appserver
+  become: yes
+  tasks:
+  - name: install openjdk8
+    apt:
+      name: java-1.8.0-openjdk.x86_64
+      state: present
+  - name: install tomcat
+    apt:
+      name: tomcat
+      state: present
+  - name: download jenkins to webapps
+    get_url: 
+      url: https://get.jenkins.io/war-stable/2.289.1/jenkins.war
+      dest: /usr/share/tomcat/webapps/jenkins.war
+  - name: enable and start tomcat
+    service:
+      name: tomcat
+      state: started
+      enabled: yes
