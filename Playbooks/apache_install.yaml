@@ -1,15 +1,13 @@
 ---
 - hosts: all
-//if specified here, all plays will get executed with sudo user.
-//if specified at play level, only that task gets executed with sudo previlages.
   become: yes
   tasks:
-  - name: install tree software
-    yum:
-      name: httpd
+  - name: install nginx software
+    apt:
+      name: nginx
       state: present
-  - name: Ensure apache service is runnong
+  - name: Ensure nginx service is runnong
     service:
-      name: httpd
+      name: nginx
       state: started
       enabled: yes
