@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  vars:
+    description: this is test
+  tasks:
+  - name: create a file with host name and OS files
+    template:
+      src: info.j2
+      dest: /home/ansible/info   
+
+//execution  - ansible-playbook templatedemo.yml
+//ansible lcalhost -m setup -a 'filter=*host*'
+//ansible localhost -m setup -a 'filter=*family*'

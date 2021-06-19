@@ -1,0 +1,23 @@
+---
+- hosts: all
+//if specified here, all plays will get executed with sudo user.
+//if specified at play level, only that task gets executed with sudo previlages.
+  become: yes
+  tasks:
+  - name: find who is the user
+    command: whoami
+  - name: ping task
+    ping:
+
+
+//after execution you will see some change in the lines
+//yellow represents changed, green represents its already there and did not change.
+  - name: find out current directory
+    command: pwd
+
+
+//let's install tree software with yum module
+  - name: install tree software
+    yum:
+      name:tree
+      state: present

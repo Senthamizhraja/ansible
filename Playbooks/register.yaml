@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tasks:
+  - name: print content of the file
+    command: cat /home/ansible/test
+    register: cat_contents
+    ignore_errors: yes   //to ignore errors if the file is not present
+  //this will display the json format of output
+  - name: dispaly contetns 
+    debug:
+      msg: "{{cat_contents}}"
+  //to get the actual output of the file, only when on error      
+  - name: display content
+    debug:
+      msg: "{{cat_contents.stdout}}"
+    when: cat_contents.stderr == "" 
+  - name: display error
+    debug:
+      msg: "{{cat_contents.stderr}}"
+    when: not cat_contents.stderr == ""     

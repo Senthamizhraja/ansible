@@ -1,0 +1,5 @@
+---
+- name: create a file using template
+  template:
+    src: info.j2
+    dest: /home/anisble/info 

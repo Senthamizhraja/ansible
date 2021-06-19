@@ -1,0 +1,7 @@
+---
+- hosts: all    //to which nodes/machiens you want this playbook execute
+  tasks:
+  //ansible module ping - ansible -m ping all
+  //ping module doesn't require name also, for readability we use it.
+  -  name: This task will ping all the machines
+     ping:
