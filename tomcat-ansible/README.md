@@ -26,7 +26,7 @@ This role contains tasks to:
 - Clone the Project:
 
 ```
-$ git clone https://github.com/jmutai/tomcat-ansible.git
+$ git clone https://github.com/Senthamizhraja/ansible.git
 $ cd tomcat-ansible
 ```
 
@@ -35,7 +35,8 @@ $ cd tomcat-ansible
 ```
 $ vim hosts
 [tomcat-nodes]
-192.168.10.10       # Remote user to act on
+#192.168.10.10       # Remote user to act on
+localhost
 ```
 
 - Update variables in playbook file - Set Tomcat version, remote user and Tomcat UI access credentials
